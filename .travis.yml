@@ -1,0 +1,11 @@
+language: objective-c
+osx_image: xcode11
+
+before_install:
+- brew update
+- brew unlink go
+- brew install go
+- brew link --force go
+
+script:
+  - bash build.sh
