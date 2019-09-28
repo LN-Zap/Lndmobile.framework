@@ -8,13 +8,20 @@ export PATH=$GOPATH/bin:$PATH
 
 set -v
 
+go version
+
 mkdir -p $GOPATH
 
 go get -d -v github.com/halseth/falafel
+cd $GOPATH/src/github.com/halseth/falafel
+go install
+cd $REPOROOT
+
 go get -d -v golang.org/x/tools/go/packages
 go get -d -v golang.org/x/mobile/cmd/gomobile
 cd $GOPATH/src/golang.org/x/mobile/cmd/gomobile
 go install
+cd $REPOROOT
 
 go get -d -v github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis
 go get -d -v github.com/lightningnetwork/lnd
