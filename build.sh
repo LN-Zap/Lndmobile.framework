@@ -69,5 +69,5 @@ protoc -I/usr/local/include -I.\
        --zap_out=$OUT \
        --swiftgrpc_out=Sync=false,Server=false:$OUT \
        $GOPATH/src/github.com/lightningnetwork/lnd/lnrpc/rpc.proto
-zip -r swift-generated.zip generated
+zip -j -r swift-generated.zip generated
 
