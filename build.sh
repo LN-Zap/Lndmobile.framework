@@ -56,7 +56,7 @@ git apply $REPOROOT/patches/user_agent_version.patch
 make tags="experimental" IOS_BUILD_DIR=$REPOROOT ios
 
 cd $REPOROOT
-zip -r Lndmobile.framework.zip Lndmobile.framework
+zip --symlinks -r Lndmobile.framework.zip Lndmobile.framework
 
 # Generate the protos.
 mkdir generated
