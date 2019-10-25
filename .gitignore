@@ -2,6 +2,8 @@
 .build/
 Lndmobile.framework/
 Lndmobile.framework.zip
+Lndmobile-android.zip
+
 .DS_Store
 example/Carthage/
 

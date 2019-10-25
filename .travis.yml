@@ -1,15 +1,29 @@
-language: objective-c
-osx_image: xcode11
-script:
-- bash build.sh
+jobs:
+  include:
+  - language: objective-c
+    os: osx
+    osx_image: xcode11
+    script:
+    - bash build_iOS.sh
+  - language: android
+    dist: trusty
+    android:
+      components:
+      - build-tools-26.0.2
+      - android-29
+    install:
+      - eval "$(curl -sL https://raw.githubusercontent.com/travis-ci/gimme/master/gimme | GIMME_GO_VERSION=1.13 bash)"   
+      - echo y | sdkmanager 'ndk-bundle'
+    script:
+      - bash build_android.sh
 deploy:
   overwrite: true
   provider: releases
   api_key:
     secure: oMjEfIuRXfKEC2jWnbWfJTSA04pI+4uRjmCp6MM+XNbD8LWr2uz7VvLHTaX+ZGzlDrDEweprNTxhW8FLSiPGJ75i9Dezy9k46uayjZVI9s0VMjqANWcyJj+DZllh4kdU56iOk5zaX+7t3DCppgnVhDSNntxMPQAWkT6oH7BnKp02hP0R+yv1mJainMWaU2yCmF/1JVQlsDJLro81j2o8bv+YkssHyowgpP1AeFm4PjDEPiopsdDRUnSW+mSqLyNl7BVv6cUY8lEiqBf4NquhPaEuOOOmoaDQG/cPrUyfXLJ+qXYXVASjFlBn6zkDv0QRHE94kZvgivid3jQF9v8H/HUaXLcxkyfTSS8pnwtN0TAbcXmMUUBgdgM4z3P143eq6rXzyG9rwRA3skWBDxGCsPa1dXHCuak3puqgBjrvhHIlrfni6uAZYXzSW5eONVXixqSGB+1FhDdw3w+wkz54nI5cld62f/loSgxPiaCWb+7kbXUnIZ+iLlQyhEy9LPKhuUJh28LE7ragYnAMGtL9omJhbBYnERoxxZPDVqBnv7mPDmJLSHPFPb4wgS0rvHwp6zl8TNJZnkGIVL/uXqCjGSHT0uhRk/dwgTidfASDnSWZI57B0xZY2HTtLb34HBw8aXpGPQnd557GzFR1MQZ3vtJBMgfFMv4yTvinoEbzaQs=
+  file_glob: true
   file:
-  - Lndmobile.framework.zip
-  - swift-generated.zip
+  - "Lndmobile*.zip"
   skip_cleanup: true
   on:
     tags: true
