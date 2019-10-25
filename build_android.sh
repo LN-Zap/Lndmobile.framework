@@ -45,5 +45,5 @@ git apply $REPOROOT/patches/user_agent_version.patch
 make GOPATH=$GOPATH ANDROID_BUILD_DIR=$REPOROOT android
 
 cd $REPOROOT
-zip --symlinks -r Lndmobile.android.zip Lndmobile.aar Lndmobile-sources.jar
+zip --symlinks -r Lndmobile-android.zip Lndmobile.aar Lndmobile-sources.jar
 rm Lndmobile.aar Lndmobile-sources.jar
