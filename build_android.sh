@@ -14,8 +14,8 @@ go version
 
 mkdir -p $GOPATH
 
-go get -d -v github.com/halseth/falafel
-cd $GOPATH/src/github.com/halseth/falafel
+go get -d -v github.com/lightninglabs/falafel
+cd $GOPATH/src/github.com/lightninglabs/falafel
 go install
 cd $REPOROOT
 
