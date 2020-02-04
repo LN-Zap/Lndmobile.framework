@@ -13,16 +13,10 @@ go version
 
 mkdir -p $GOPATH
 
-go get -d -v github.com/lightninglabs/falafel
-cd $GOPATH/src/github.com/lightninglabs/falafel
-go install
-cd $REPOROOT
-
-go get -d -v golang.org/x/tools/go/packages
-go get -d -v golang.org/x/mobile/cmd/gomobile
-cd $GOPATH/src/golang.org/x/mobile/cmd/gomobile
-go install
-cd $REPOROOT
+go get -v github.com/lightninglabs/falafel
+go get -v golang.org/x/tools/cmd/goimports
+go get -v golang.org/x/tools/go/packages
+go get -v golang.org/x/mobile/cmd/gomobile
 
 go get -d -v github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis
 go get -d -v github.com/lightningnetwork/lnd
