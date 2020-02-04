@@ -49,7 +49,7 @@ export PATH=$PWD/protoc-gen-zap:$PATH
 # lnd
 gomobile init
 cd $GOPATH/src/github.com/lightningnetwork/lnd
-git checkout v0.8.0-beta
+git checkout v0.9.0-beta
 
 git apply $REPOROOT/patches/user_agent_name.patch
 git apply $REPOROOT/patches/user_agent_version.patch
